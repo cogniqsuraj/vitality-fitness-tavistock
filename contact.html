@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Vitality Fitness Tavistock</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="index.html">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Vitality Fitness Tavistock</span>
+                        </a>
+                    </div>
+                    <div class="nav-toggle" id="navToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="index.html#about" class="nav-link">About</a></li>
+                        <li><a href="index.html#classes" class="nav-link">Classes</a></li>
+                        <li><a href="memberships.html" class="nav-link">Memberships</a></li>
+                        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                        <li><a href="member-area.html" class="btn-nav-login">Member Area</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team</p>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 0; background-color: var(--bg-light);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                <div>
+                    <h2 style="margin-bottom: 2rem;">Send Us a Message</h2>
+                    <form id="contactForm" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div class="form-group">
+                            <label class="form-label">Your Name *</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Subject *</label>
+                            <select class="form-select" required>
+                                <option value="">Select a subject</option>
+                                <option value="membership">Membership Inquiry</option>
+                                <option value="classes">Class Information</option>
+                                <option value="pt">Personal Training</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message *</label>
+                            <textarea class="form-textarea" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+
+                <div>
+                    <h2 style="margin-bottom: 2rem;">Get in Touch</h2>
+                    <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <i class="fas fa-phone" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                                <div>
+                                    <h4 style="margin-bottom: 0.5rem;">Phone</h4>
+                                    <p style="color: var(--text-light);">+44 1822 366335</p>
+                                    <p style="font-size: 0.9rem; color: var(--text-light);">Mon-Fri 6am-10pm, Sat-Sun 8am-8pm</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <i class="fas fa-envelope" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                                <div>
+                                    <h4 style="margin-bottom: 0.5rem;">Email</h4>
+                                    <p style="color: var(--text-light);">hello@vitalityfitnesstavistock.com</p>
+                                    <p style="font-size: 0.9rem; color: var(--text-light);">We'll respond within 24 hours</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                                <div>
+                                    <h4 style="margin-bottom: 0.5rem;">Location</h4>
+                                    <p style="color: var(--text-light);">Tavistock, UK</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                                <i class="fab fa-instagram" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                                <div>
+                                    <h4 style="margin-bottom: 0.5rem;">Social Media</h4>
+                                    <a href="https://www.instagram.com/vft.tavistock/" target="_blank" style="color: var(--primary-color);">@vft.tavistock</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); padding: 2rem; border-radius: 12px; color: white; text-align: center;">
+                        <h3 style="color: white; margin-bottom: 1rem;">Book a Free Tour</h3>
+                        <p style="margin-bottom: 1.5rem;">Come visit us and see our facilities in person!</p>
+                        <a href="booking.html?type=induction" class="btn btn-secondary">Schedule a Visit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Vitality Fitness Tavistock</h3>
+                    <p>Tavistock's biggest, fully equipped gym, powered by fitness professionals.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/vft.tavistock/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="memberships.html">Memberships</a></li>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="booking.html">Book a Class</a></li>
+                        <li><a href="member-area.html">Member Area</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +44 1822 366335</li>
+                        <li><i class="fas fa-envelope"></i> hello@vitalityfitnesstavistock.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tavistock, UK</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vitality Fitness Tavistock. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header" id="chatbotHeader">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <span>VFT Assistant</span>
+            </div>
+            <div class="chatbot-controls">
+                <button class="chatbot-minimize" id="chatbotMinimize"><i class="fas fa-minus"></i></button>
+                <button class="chatbot-close" id="chatbotClose"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                <div class="message-content"><p>Hi! How can I help you today?</p></div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInputField" placeholder="Type your message...">
+            <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <button class="chatbot-toggle" id="chatbotToggle">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm(this)) {
+                showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>

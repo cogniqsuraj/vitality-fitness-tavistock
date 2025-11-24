@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Vitality Fitness Tavistock</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-dumbbell"></i>
+                <span>VFT Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#bookings" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="#members" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Members</span>
+                </a>
+                <a href="#classes" class="nav-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Classes</span>
+                </a>
+                <a href="#analytics" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#announcements" class="nav-item">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Announcements</span>
+                </a>
+                <a href="#settings" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=ff6b35&color=fff" alt="Admin">
+                        <span>Admin User</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="dashboard-content">
+                <!-- Overview Section -->
+                <section id="overview" class="content-section active">
+                    <div class="section-header">
+                        <div>
+                            <h2>Dashboard Overview</h2>
+                            <p style="color: #7f8c8d; margin: 0.5rem 0 0 0;">Wednesday, November 20, 2025</p>
+                        </div>
+                        <div class="time-widget">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <div class="time-display">14:35:42</div>
+                                <div class="date-display">Current Time</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #ff6b35, #ff8557);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="stat-members">287</h3>
+                                <p>Active Members</p>
+                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +12% this month</span>
+                            </div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #004e89, #0066b2);">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="stat-bookings">156</h3>
+                                <p>Bookings Today</p>
+                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +8% vs yesterday</span>
+                            </div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #28a745, #34ce57);">
+                                <i class="fas fa-pound-sign"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="stat-revenue">£9,847</h3>
+                                <p>Revenue (MTD)</p>
+                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +15% vs last month</span>
+                            </div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 82%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #ffc107, #ffcd38);">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="stat-attendance">92%</h3>
+                                <p>Attendance Rate</p>
+                                <span class="stat-change neutral"><i class="fas fa-minus"></i> Same as last week</span>
+                            </div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity & Quick Actions -->
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h2>Today's Class Schedule</h2>
+                                <button class="btn btn-outline btn-sm">View All</button>
+                            </div>
+                            <div class="class-schedule">
+                                <div class="schedule-item completed">
+                                    <div class="schedule-status">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="schedule-time">
+                                        <span class="time">09:00 AM</span>
+                                        <span class="duration">60 min</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Yoga & Pilates</h4>
+                                        <p><i class="fas fa-user"></i> Sarah Johnson • <i class="fas fa-users"></i> 12/20 spots</p>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <span class="badge badge-success">Completed</span>
+                                        <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                </div>
+                                <div class="schedule-item in-progress">
+                                    <div class="schedule-status">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="schedule-time">
+                                        <span class="time">10:30 AM</span>
+                                        <span class="duration">45 min</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>HIIT Training</h4>
+                                        <p><i class="fas fa-user"></i> Mike Peters • <i class="fas fa-users"></i> 15/20 spots</p>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <button class="btn btn-primary btn-sm">Check In</button>
+                                    </div>
+                                </div>
+                                <div class="schedule-item upcoming">
+                                    <div class="schedule-status">
+                                        <i class="fas fa-circle"></i>
+                                    </div>
+                                    <div class="schedule-time">
+                                        <span class="time">12:00 PM</span>
+                                        <span class="duration">50 min</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Spin Cycle</h4>
+                                        <p><i class="fas fa-user"></i> Emma Davis • <i class="fas fa-users"></i> 18/20 spots</p>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <span class="badge badge-warning">Almost Full</span>
+                                        <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="schedule-item upcoming">
+                                    <div class="schedule-status">
+                                        <i class="fas fa-circle"></i>
+                                    </div>
+                                    <div class="schedule-time">
+                                        <span class="time">05:00 PM</span>
+                                        <span class="duration">55 min</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Strength Training</h4>
+                                        <p><i class="fas fa-user"></i> James Wilson • <i class="fas fa-users"></i> 8/20 spots</p>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <span class="badge">Available</span>
+                                        <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                </div>
+                                <div class="schedule-item upcoming">
+                                    <div class="schedule-status">
+                                        <i class="fas fa-circle"></i>
+                                    </div>
+                                    <div class="schedule-time">
+                                        <span class="time">06:30 PM</span>
+                                        <span class="duration">60 min</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Evening Yoga</h4>
+                                        <p><i class="fas fa-user"></i> Sarah Johnson • <i class="fas fa-users"></i> 16/20 spots</p>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <span class="badge badge-warning">Popular</span>
+                                        <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h2>Quick Actions</h2>
+                            <div class="quick-actions">
+                                <button class="action-btn" onclick="showNotification('Opening member registration...', 'success')">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span>Add Member</span>
+                                </button>
+                                <button class="action-btn" onclick="showNotification('Opening class creator...', 'success')">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span>Create Class</span>
+                                </button>
+                                <button class="action-btn" onclick="document.getElementById('announcements').scrollIntoView({behavior: 'smooth'}); document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active')); document.querySelector('[href=\'#announcements\']').classList.add('active'); document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active')); document.getElementById('announcements').classList.add('active');">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <span>Announce</span>
+                                </button>
+                                <button class="action-btn" onclick="exportReport('bookings')">
+                                    <i class="fas fa-file-download"></i>
+                                    <span>Export Report</span>
+                                </button>
+                                <button class="action-btn" onclick="showNotification('Opening revenue dashboard...', 'success')">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span>View Analytics</span>
+                                </button>
+                                <button class="action-btn" onclick="showNotification('Opening member directory...', 'success')">
+                                    <i class="fas fa-address-book"></i>
+                                    <span>Member List</span>
+                                </button>
+                            </div>
+
+                            <h3 style="margin-top: 2rem;">Recent Activity</h3>
+                            <div class="recent-bookings">
+                                <div class="booking-item">
+                                    <div class="booking-avatar">JD</div>
+                                    <div class="booking-info">
+                                        <h4>James Davidson</h4>
+                                        <p>Booked Yoga & Pilates - Tomorrow 9:00 AM</p>
+                                    </div>
+                                    <span class="booking-time">2 min ago</span>
+                                </div>
+                                <div class="booking-item">
+                                    <div class="booking-avatar">SM</div>
+                                    <div class="booking-info">
+                                        <h4>Sarah Mitchell</h4>
+                                        <p>Booked PT Session with Mike - Friday 3:00 PM</p>
+                                    </div>
+                                    <span class="booking-time">15 min ago</span>
+                                </div>
+                                <div class="booking-item">
+                                    <div class="booking-avatar">MP</div>
+                                    <div class="booking-info">
+                                        <h4>Michael Peters</h4>
+                                        <p>Booked HIIT Training - Today 10:30 AM</p>
+                                    </div>
+                                    <span class="booking-time">1 hour ago</span>
+                                </div>
+                                <div class="booking-item">
+                                    <div class="booking-avatar">LC</div>
+                                    <div class="booking-info">
+                                        <h4>Lisa Cooper</h4>
+                                        <p>New Premium membership - Started today</p>
+                                    </div>
+                                    <span class="booking-time">2 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Stats Row -->
+                    <div class="dashboard-grid" style="margin-top: 2rem;">
+                        <div class="dashboard-card">
+                            <h2>Member Growth</h2>
+                            <div class="growth-chart">
+                                <div class="growth-item">
+                                    <div class="growth-label">New This Week</div>
+                                    <div class="growth-value">+24</div>
+                                    <div class="growth-bar">
+                                        <div style="width: 85%; background: linear-gradient(90deg, #28a745, #34ce57);"></div>
+                                    </div>
+                                </div>
+                                <div class="growth-item">
+                                    <div class="growth-label">Renewals</div>
+                                    <div class="growth-value">18</div>
+                                    <div class="growth-bar">
+                                        <div style="width: 65%; background: linear-gradient(90deg, #004e89, #0066b2);"></div>
+                                    </div>
+                                </div>
+                                <div class="growth-item">
+                                    <div class="growth-label">Cancellations</div>
+                                    <div class="growth-value">3</div>
+                                    <div class="growth-bar">
+                                        <div style="width: 15%; background: linear-gradient(90deg, #dc3545, #e74c3c);"></div>
+                                    </div>
+                                </div>
+                                <div class="growth-item">
+                                    <div class="growth-label">Net Growth</div>
+                                    <div class="growth-value positive">+21</div>
+                                    <div class="growth-bar">
+                                        <div style="width: 90%; background: linear-gradient(90deg, #ff6b35, #ff8557);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h2>Class Popularity</h2>
+                            <div class="popularity-chart">
+                                <div class="popularity-item">
+                                    <div class="popularity-info">
+                                        <span class="class-name">Spin Cycle</span>
+                                        <span class="class-count">92 bookings</span>
+                                    </div>
+                                    <div class="popularity-bar">
+                                        <div style="width: 92%; background: linear-gradient(90deg, #ff6b35, #ff8557);"></div>
+                                    </div>
+                                    <span class="popularity-percentage">92%</span>
+                                </div>
+                                <div class="popularity-item">
+                                    <div class="popularity-info">
+                                        <span class="class-name">Yoga & Pilates</span>
+                                        <span class="class-count">85 bookings</span>
+                                    </div>
+                                    <div class="popularity-bar">
+                                        <div style="width: 85%; background: linear-gradient(90deg, #004e89, #0066b2);"></div>
+                                    </div>
+                                    <span class="popularity-percentage">85%</span>
+                                </div>
+                                <div class="popularity-item">
+                                    <div class="popularity-info">
+                                        <span class="class-name">HIIT Training</span>
+                                        <span class="class-count">78 bookings</span>
+                                    </div>
+                                    <div class="popularity-bar">
+                                        <div style="width: 78%; background: linear-gradient(90deg, #28a745, #34ce57);"></div>
+                                    </div>
+                                    <span class="popularity-percentage">78%</span>
+                                </div>
+                                <div class="popularity-item">
+                                    <div class="popularity-info">
+                                        <span class="class-name">Strength Training</span>
+                                        <span class="class-count">65 bookings</span>
+                                    </div>
+                                    <div class="popularity-bar">
+                                        <div style="width: 65%; background: linear-gradient(90deg, #ffc107, #ffcd38);"></div>
+                                    </div>
+                                    <span class="popularity-percentage">65%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bookings Section -->
+                <section id="bookings" class="content-section">
+                    <div class="section-header">
+                        <h2>Manage Bookings</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-filter"></i> Filters
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i> New Booking
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Summary Cards -->
+                    <div class="booking-summary-cards">
+                        <div class="summary-card">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <h3>156</h3>
+                                <p>Today's Bookings</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>28</h3>
+                                <p>Pending Check-ins</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <i class="fas fa-user-check"></i>
+                            <div>
+                                <h3>124</h3>
+                                <p>Completed</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <i class="fas fa-ban"></i>
+                            <div>
+                                <h3>4</h3>
+                                <p>No-shows</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="table-filters">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search by member name, booking ID..." class="search-input">
+                            </div>
+                            <select class="filter-select">
+                                <option>All Classes</option>
+                                <option>Yoga & Pilates</option>
+                                <option>HIIT Training</option>
+                                <option>Spin Cycle</option>
+                                <option>Strength Training</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>All Dates</option>
+                                <option>Today</option>
+                                <option>Tomorrow</option>
+                                <option>This Week</option>
+                                <option>This Month</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>All Statuses</option>
+                                <option>Confirmed</option>
+                                <option>Pending</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox" id="selectAll"></th>
+                                        <th>Booking ID</th>
+                                        <th>Member</th>
+                                        <th>Class</th>
+                                        <th>Date & Time</th>
+                                        <th>Status</th>
+                                        <th>Payment</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td><strong>#VFT1001</strong></td>
+                                        <td>
+                                            <div class="member-cell">
+                                                <div class="member-avatar">JD</div>
+                                                <div>
+                                                    <div class="member-name">James Davidson</div>
+                                                    <div class="member-email">james.d@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="class-cell">
+                                                <strong>Yoga & Pilates</strong>
+                                                <span>Sarah Johnson</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="datetime-cell">
+                                                <div>Nov 21, 2025</div>
+                                                <div class="time-cell">9:00 AM - 10:00 AM</div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                        <td><span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td><strong>#VFT1002</strong></td>
+                                        <td>
+                                            <div class="member-cell">
+                                                <div class="member-avatar">SM</div>
+                                                <div>
+                                                    <div class="member-name">Sarah Mitchell</div>
+                                                    <div class="member-email">sarah.m@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="class-cell">
+                                                <strong>HIIT Training</strong>
+                                                <span>Mike Peters</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="datetime-cell">
+                                                <div>Nov 20, 2025</div>
+                                                <div class="time-cell">10:30 AM - 11:15 AM</div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                        <td><span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td><strong>#VFT1003</strong></td>
+                                        <td>
+                                            <div class="member-cell">
+                                                <div class="member-avatar">MP</div>
+                                                <div>
+                                                    <div class="member-name">Michael Peters</div>
+                                                    <div class="member-email">mike.p@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="class-cell">
+                                                <strong>Spin Cycle</strong>
+                                                <span>Emma Davis</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="datetime-cell">
+                                                <div>Nov 20, 2025</div>
+                                                <div class="time-cell">12:00 PM - 12:50 PM</div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                        <td><span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td><strong>#VFT1004</strong></td>
+                                        <td>
+                                            <div class="member-cell">
+                                                <div class="member-avatar">LC</div>
+                                                <div>
+                                                    <div class="member-name">Lisa Cooper</div>
+                                                    <div class="member-email">lisa.c@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="class-cell">
+                                                <strong>PT Session</strong>
+                                                <span>Mike Peters</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="datetime-cell">
+                                                <div>Nov 22, 2025</div>
+                                                <div class="time-cell">3:00 PM - 4:00 PM</div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                        <td><span class="badge" style="background-color: #fff3cd; color: #856404;">Pending</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td><strong>#VFT1005</strong></td>
+                                        <td>
+                                            <div class="member-cell">
+                                                <div class="member-avatar">RJ</div>
+                                                <div>
+                                                    <div class="member-name">Robert Johnson</div>
+                                                    <div class="member-email">rob.j@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="class-cell">
+                                                <strong>Strength Training</strong>
+                                                <span>James Wilson</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="datetime-cell">
+                                                <div>Nov 20, 2025</div>
+                                                <div class="time-cell">5:00 PM - 5:55 PM</div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                        <td><span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-pagination">
+                            <div class="pagination-info">Showing 1-5 of 156 bookings</div>
+                            <div class="pagination-controls">
+                                <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                                <button class="page-btn active">1</button>
+                                <button class="page-btn">2</button>
+                                <button class="page-btn">3</button>
+                                <button class="page-btn">...</button>
+                                <button class="page-btn">32</button>
+                                <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Members Section -->
+                <section id="members" class="content-section">
+                    <div class="section-header">
+                        <h2>Member Management</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-file-export"></i> Export
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-user-plus"></i> Add Member
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <h3>Membership Breakdown</h3>
+                            <div class="membership-breakdown">
+                                <div class="breakdown-item">
+                                    <div class="breakdown-label">
+                                        <span class="color-dot" style="background: linear-gradient(135deg, #ff6b35, #ff8557);"></span>
+                                        <span>Basic Members</span>
+                                    </div>
+                                    <strong>87</strong>
+                                </div>
+                                <div class="breakdown-item">
+                                    <div class="breakdown-label">
+                                        <span class="color-dot" style="background: linear-gradient(135deg, #004e89, #0066b2);"></span>
+                                        <span>Premium Members</span>
+                                    </div>
+                                    <strong>156</strong>
+                                </div>
+                                <div class="breakdown-item">
+                                    <div class="breakdown-label">
+                                        <span class="color-dot" style="background: linear-gradient(135deg, #28a745, #34ce57);"></span>
+                                        <span>Elite Members</span>
+                                    </div>
+                                    <strong>44</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>Quick Stats</h3>
+                            <div class="quick-stats-grid">
+                                <div class="quick-stat">
+                                    <div class="stat-value">24</div>
+                                    <div class="stat-label">New This Week</div>
+                                </div>
+                                <div class="quick-stat">
+                                    <div class="stat-value">18</div>
+                                    <div class="stat-label">Renewals</div>
+                                </div>
+                                <div class="quick-stat">
+                                    <div class="stat-value">3</div>
+                                    <div class="stat-label">Cancellations</div>
+                                </div>
+                                <div class="quick-stat">
+                                    <div class="stat-value">89%</div>
+                                    <div class="stat-label">Retention Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Classes Section -->
+                <section id="classes" class="content-section">
+                    <div class="section-header">
+                        <h2>Class Management</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-calendar"></i> Weekly View
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add Class
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>This Week's Classes</h3>
+                        <div class="weekly-schedule">
+                            <div class="day-column">
+                                <div class="day-header">Monday</div>
+                                <div class="day-classes">
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">9:00 AM</div>
+                                        <div class="class-name-mini">Yoga</div>
+                                        <div class="class-spots-mini">12/20</div>
+                                    </div>
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">6:30 PM</div>
+                                        <div class="class-name-mini">HIIT</div>
+                                        <div class="class-spots-mini">15/20</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="day-column">
+                                <div class="day-header">Tuesday</div>
+                                <div class="day-classes">
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">10:30 AM</div>
+                                        <div class="class-name-mini">Spin</div>
+                                        <div class="class-spots-mini">18/20</div>
+                                    </div>
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">5:00 PM</div>
+                                        <div class="class-name-mini">Strength</div>
+                                        <div class="class-spots-mini">10/20</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="day-column">
+                                <div class="day-header">Wednesday</div>
+                                <div class="day-classes">
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">9:00 AM</div>
+                                        <div class="class-name-mini">Yoga</div>
+                                        <div class="class-spots-mini">14/20</div>
+                                    </div>
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">12:00 PM</div>
+                                        <div class="class-name-mini">Spin</div>
+                                        <div class="class-spots-mini">16/20</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="day-column">
+                                <div class="day-header">Thursday</div>
+                                <div class="day-classes">
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">10:30 AM</div>
+                                        <div class="class-name-mini">HIIT</div>
+                                        <div class="class-spots-mini">17/20</div>
+                                    </div>
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">6:30 PM</div>
+                                        <div class="class-name-mini">Yoga</div>
+                                        <div class="class-spots-mini">19/20</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="day-column">
+                                <div class="day-header">Friday</div>
+                                <div class="day-classes">
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">5:00 PM</div>
+                                        <div class="class-name-mini">Strength</div>
+                                        <div class="class-spots-mini">12/20</div>
+                                    </div>
+                                    <div class="mini-class-card">
+                                        <div class="class-time-mini">7:00 PM</div>
+                                        <div class="class-name-mini">Cardio</div>
+                                        <div class="class-spots-mini">11/20</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics" class="content-section">
+                    <h2>Analytics & Reports</h2>
+                    <div class="analytics-grid">
+                        <div class="dashboard-card">
+                            <h3>Peak Hours</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-bar" style="font-size: 3rem; color: #ccc;"></i>
+                                <p style="color: #999; margin-top: 1rem;">Peak hours: 5-7 PM (Mon-Fri)</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>Most Popular Classes</h3>
+                            <div class="popularity-list">
+                                <div class="popularity-item">
+                                    <span>Yoga & Pilates</span>
+                                    <div class="popularity-bar"><div style="width: 85%;"></div></div>
+                                    <span>85%</span>
+                                </div>
+                                <div class="popularity-item">
+                                    <span>HIIT Training</span>
+                                    <div class="popularity-bar"><div style="width: 78%;"></div></div>
+                                    <span>78%</span>
+                                </div>
+                                <div class="popularity-item">
+                                    <span>Spin Cycle</span>
+                                    <div class="popularity-bar"><div style="width: 92%;"></div></div>
+                                    <span>92%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Announcements Section -->
+                <section id="announcements" class="content-section">
+                    <div class="section-header">
+                        <h2>Send Announcement</h2>
+                    </div>
+                    
+                    <div class="dashboard-grid" style="grid-template-columns: 2fr 1fr;">
+                        <div class="dashboard-card">
+                            <h3 style="margin-bottom: 1.5rem;">Create New Announcement</h3>
+                            <form class="announcement-form">
+                                <div class="form-group">
+                                    <label class="form-label">Announcement Title</label>
+                                    <input type="text" class="form-input" placeholder="Enter announcement title..." required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-textarea" placeholder="Type your announcement message here..." required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Delivery Options</label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="emailNotif">
+                                        <span><i class="fas fa-envelope" style="color: #004e89; margin-right: 8px;"></i>Send via Email</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="smsNotif">
+                                        <span><i class="fas fa-sms" style="color: #28a745; margin-right: 8px;"></i>Send via SMS</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="dashNotif" checked>
+                                        <span><i class="fas fa-tv" style="color: #ff6b35; margin-right: 8px;"></i>Display on Member Dashboard</span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;">
+                                    <i class="fas fa-paper-plane"></i> Send Announcement
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3 style="margin-bottom: 1.5rem;">Recent Announcements</h3>
+                            <div class="announcement-list">
+                                <div class="announcement-item">
+                                    <div class="announcement-date">Nov 19, 2025</div>
+                                    <h4>New Class Schedule</h4>
+                                    <p>Check out our updated class schedule for next month!</p>
+                                    <div class="announcement-meta">
+                                        <span><i class="fas fa-eye"></i> 245 views</span>
+                                    </div>
+                                </div>
+                                <div class="announcement-item">
+                                    <div class="announcement-date">Nov 15, 2025</div>
+                                    <h4>Facility Upgrade</h4>
+                                    <p>We've added new equipment to the strength training area.</p>
+                                    <div class="announcement-meta">
+                                        <span><i class="fas fa-eye"></i> 312 views</span>
+                                    </div>
+                                </div>
+                                <div class="announcement-item">
+                                    <div class="announcement-date">Nov 10, 2025</div>
+                                    <h4>Holiday Hours</h4>
+                                    <p>Special operating hours during the holiday season.</p>
+                                    <div class="announcement-meta">
+                                        <span><i class="fas fa-eye"></i> 189 views</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
