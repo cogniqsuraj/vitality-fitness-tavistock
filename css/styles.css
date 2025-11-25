@@ -296,7 +296,8 @@ h6 { font-size: 1rem; }
     align-items: center;
     justify-content: center;
     background: #000;
-    margin-top: 70px;
+    margin-top: 0;
+    padding-top: 70px;
     overflow: hidden;
 }
 
@@ -1273,17 +1274,29 @@ h6 { font-size: 1rem; }
 
 /* Tablet portrait */
 @media (max-width: 968px) {
+    .navbar {
+        padding: 0.875rem 0;
+    }
+    
+    .logo a {
+        font-size: 1.3rem;
+    }
+    
+    .logo i {
+        font-size: 1.6rem;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 65px;
         flex-direction: column;
         background-color: var(--text-white);
         width: 100%;
         text-align: center;
         transition: var(--transition-base);
         box-shadow: var(--shadow-md);
-        padding: 2rem 0;
+        padding: 1.75rem 0;
         gap: 0;
         z-index: 1000;
     }
@@ -1293,11 +1306,16 @@ h6 { font-size: 1rem; }
     }
     
     .nav-menu li {
-        margin: 1rem 0;
+        margin: 0.875rem 0;
     }
     
     .nav-toggle {
         display: flex;
+    }
+    
+    .nav-toggle span {
+        width: 24px;
+        height: 3px;
     }
     
     .about-grid {
@@ -1398,10 +1416,40 @@ h6 { font-size: 1rem; }
 
 /* Mobile portrait */
 @media (max-width: 640px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+    
+    .logo a {
+        font-size: 1.1rem;
+    }
+    
+    .logo i {
+        font-size: 1.4rem;
+    }
+    
+    .nav-menu {
+        top: 55px;
+        padding: 1.25rem 0;
+    }
+    
+    .nav-menu li {
+        margin: 0.65rem 0;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+    }
+    
+    .btn-nav-login {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
     .hero {
         height: auto;
         min-height: 100vh;
-        padding: 5rem 0 3rem;
+        padding: 4.5rem 0 3rem;
     }
     
     .hero-title {

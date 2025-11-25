@@ -3,7 +3,7 @@
 // ========================================
 
 // Google Gemini API Configuration
-const GEMINI_API_KEY = 'AIzaSyDfz7Bn7K03LrsiY-h_rJ6tn9bvFtv-5iI';
+const GEMINI_API_KEY = 'AIzaSyCRSehG3B0nlz5_4iNkPdnBuq1-P0tCfTk';
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
 
 // Gym Context for AI
