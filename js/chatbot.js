@@ -258,11 +258,106 @@ function addMessage(text, sender) {
     }).join('');
     
     content.appendChild(messageText);
+    
+    // Add action buttons for bot messages based on content
+    if (sender === 'bot') {
+        const lowerText = cleanText.toLowerCase();
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.className = 'chatbot-action-buttons';
+        buttonsContainer.style.cssText = 'display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;';
+        
+        let hasButtons = false;
+        
+        // Check for membership/pricing related content
+        if (lowerText.includes('membership') || lowerText.includes('£') || lowerText.includes('price') || 
+            lowerText.includes('basic') || lowerText.includes('premium') || lowerText.includes('elite') ||
+            lowerText.includes('plan')) {
+            const membershipBtn = createActionButton('View Plans', 'memberships.html');
+            buttonsContainer.appendChild(membershipBtn);
+            hasButtons = true;
+        }
+        
+        // Check for classes related content
+        if (lowerText.includes('class') || lowerText.includes('yoga') || lowerText.includes('hiit') || 
+            lowerText.includes('spin') || lowerText.includes('training')) {
+            const classesBtn = createActionButton('View Classes', '#classes');
+            buttonsContainer.appendChild(classesBtn);
+            hasButtons = true;
+        }
+        
+        // Check for booking related content
+        if (lowerText.includes('book') || lowerText.includes('schedule') || lowerText.includes('reserve')) {
+            const bookBtn = createActionButton('Book Now', 'booking.html');
+            buttonsContainer.appendChild(bookBtn);
+            hasButtons = true;
+        }
+        
+        // Check for contact related content
+        if (lowerText.includes('contact') || lowerText.includes('phone') || lowerText.includes('email') || 
+            lowerText.includes('location') || lowerText.includes('hours')) {
+            const contactBtn = createActionButton('Contact Us', '#contact');
+            buttonsContainer.appendChild(contactBtn);
+            hasButtons = true;
+        }
+        
+        if (hasButtons) {
+            content.appendChild(buttonsContainer);
+        }
+    }
+    
     messageDiv.appendChild(avatar);
     messageDiv.appendChild(content);
     
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Create action button
+function createActionButton(text, link) {
+    const button = document.createElement('button');
+    button.textContent = text;
+    button.style.cssText = `
+        background: linear-gradient(135deg, #ff6b35, #f77f00);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    `;
+    
+    button.onmouseover = () => {
+        button.style.transform = 'translateY(-2px)';
+        button.style.boxShadow = '0 4px 12px rgba(255, 107, 53, 0.3)';
+    };
+    
+    button.onmouseout = () => {
+        button.style.transform = 'translateY(0)';
+        button.style.boxShadow = 'none';
+    };
+    
+    button.onclick = () => {
+        if (link.startsWith('#')) {
+            // Close chatbot
+            document.getElementById('chatbot').classList.remove('active');
+            document.getElementById('chatbotToggle').style.display = 'flex';
+            
+            // Scroll to section
+            setTimeout(() => {
+                const target = document.querySelector(link);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 300);
+        } else {
+            // Navigate to page
+            window.location.href = link;
+        }
+    };
+    
+    return button;
 }
 
 // Show Typing Indicator
