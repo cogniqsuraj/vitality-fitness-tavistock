@@ -3,7 +3,7 @@
 // ========================================
 
 // Google Gemini API Configuration
-const GEMINI_API_KEY = typeof CONFIG !== 'undefined' ? CONFIG.GEMINI_API_KEY : 'AIzaSyCz4srEwlmBls8tJBH-KGbchRogwp_bHQY';
+const GEMINI_API_KEY = typeof CONFIG !== 'undefined' && CONFIG.GEMINI_API_KEY ? CONFIG.GEMINI_API_KEY : 'AIzaSyDF_q4VVI6ZqvOaVUzA_RAbyOp1H5djARg';
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
 // Gym Context for AI
@@ -187,7 +187,11 @@ async function sendMessage() {
 
 // Get Response from Google Gemini AI
 async function getGeminiResponse(userMessage) {
-    const url = `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`;
+    const apiKey = typeof CONFIG !== 'undefined' && CONFIG.GEMINI_API_KEY ? CONFIG.GEMINI_API_KEY : GEMINI_API_KEY;
+    const url = `${GEMINI_API_URL}?key=${apiKey}`;
+    
+    console.log('Using API key:', apiKey ? 'Key loaded' : 'No key found');
+    console.log('API URL:', GEMINI_API_URL);
     
     const payload = {
         contents: [{
