@@ -3,8 +3,8 @@
 // ========================================
 
 // Google Gemini API Configuration
-const GEMINI_API_KEY = 'AIzaSyCRSehG3B0nlz5_4iNkPdnBuq1-P0tCfTk';
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
+const GEMINI_API_KEY = 'AIzaSyCz4srEwlmBls8tJBH-KGbchRogwp_bHQY';
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
 // Gym Context for AI
 const GYM_CONTEXT = `You are a helpful AI assistant for Vitality Fitness Tavistock, a gym in Tavistock, UK. Here's important information about the gym:
@@ -53,7 +53,7 @@ FEATURES:
 - Flexible cancellation (30 days notice)
 - Accept all major cards, direct debit, bank transfers
 
-Always be friendly, helpful, and encourage users to book classes or memberships. Keep responses concise but informative.`;
+IMPORTANT: Format your responses clearly with proper structure. Use line breaks for readability. When listing prices or options, present them in an organized manner. Keep responses concise (2-4 sentences) but well-formatted. Be friendly and helpful.`;
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing chatbot...');
@@ -197,22 +197,31 @@ async function getGeminiResponse(userMessage) {
         }]
     };
 
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
 
-    if (!response.ok) {
-        const error = await response.text();
-        console.error('❌ Gemini API Error:', error);
-        throw new Error(`API failed: ${response.status}`);
+        if (!response.ok) {
+            const error = await response.json();
+            console.error('❌ Gemini API Error:', error);
+            throw new Error(`API failed: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('✅ API Response:', data);
+        
+        if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+            return data.candidates[0].content.parts[0].text;
+        } else {
+            throw new Error('Invalid API response structure');
+        }
+    } catch (error) {
+        console.error('Full error:', error);
+        throw error;
     }
-
-    const data = await response.json();
-    console.log('✅ API Response:', data);
-    
-    return data.candidates[0].content.parts[0].text;
 }
 
 // Add Message to Chat
@@ -229,8 +238,24 @@ function addMessage(text, sender) {
     content.className = 'message-content';
     
     const messageText = document.createElement('p');
-    messageText.textContent = text;
-    messageText.style.whiteSpace = 'pre-line'; // Preserve line breaks
+    // Clean up text formatting and preserve line breaks
+    const cleanText = text
+        .replace(/\*\*/g, '') // Remove bold markdown
+        .replace(/\*/g, '') // Remove italic markdown
+        .replace(/\n\n/g, '\n') // Remove double line breaks
+        .trim();
+    
+    // Split by newlines and create proper formatting
+    const lines = cleanText.split('\n');
+    messageText.innerHTML = lines.map(line => {
+        line = line.trim();
+        if (!line) return '';
+        // Check if line is a list item or important info
+        if (line.startsWith('-') || line.startsWith('•')) {
+            return `<span style="display: block; margin: 2px 0;">${line}</span>`;
+        }
+        return `<span style="display: block; margin: 4px 0;">${line}</span>`;
+    }).join('');
     
     content.appendChild(messageText);
     messageDiv.appendChild(avatar);
