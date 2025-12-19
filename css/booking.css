@@ -559,6 +559,7 @@
         opacity: 0;
         transform: translateY(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -654,20 +655,33 @@
     .booking-container {
         grid-template-columns: 1fr;
     }
-    
+
     .class-slot {
         grid-template-columns: 1fr;
         gap: 1rem;
+        text-align: center;
     }
-    
+
+    .class-time {
+        justify-content: center;
+    }
+
+    .class-meta {
+        justify-content: center;
+    }
+
+    .book-btn {
+        width: 100%;
+    }
+
     .trainers-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .page-header {
         padding: 6rem 0 3rem;
     }
-    
+
     .page-header h1 {
         font-size: 2rem;
     }
@@ -677,16 +691,16 @@
     .booking-tabs {
         flex-direction: column;
     }
-    
+
     .tab-btn {
         width: 100%;
         justify-content: center;
     }
-    
+
     .time-slots-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .modal-content {
         margin: 0;
     }

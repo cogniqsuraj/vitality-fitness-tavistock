@@ -2,9 +2,8 @@
 // AI Chatbot - Google Gemini Integration
 // ========================================
 
-// Google Gemini API Configuration
-const GEMINI_API_KEY = typeof CONFIG !== 'undefined' && CONFIG.GEMINI_API_KEY ? CONFIG.GEMINI_API_KEY : 'AIzaSyAKGld_muZ1e0vfs30WFkZr83Eu_cQ7isA';
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+// Google Gemini API Configuration (Proxied via Cloudflare Worker)
+const GEMINI_API_URL = "https://vitality-fitness-chatbot.cogniqsuraj.workers.dev";
 
 // Gym Context for AI
 const GYM_CONTEXT = `You are a helpful AI assistant for Vitality Fitness Tavistock, a gym in Tavistock, UK. Here's important information about the gym:
@@ -55,43 +54,43 @@ FEATURES:
 
 IMPORTANT: Format your responses clearly with proper structure. Use line breaks for readability. When listing prices or options, present them in an organized manner. Keep responses concise (2-4 sentences) but well-formatted. Be friendly and helpful.`;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM loaded, initializing chatbot...');
-    
+
     // Direct approach - more reliable
     const toggle = document.getElementById('chatbotToggle');
     const chatbot = document.getElementById('chatbot');
-    
+
     console.log('Chatbot toggle button:', toggle);
     console.log('Chatbot container:', chatbot);
-    
+
     if (toggle && chatbot) {
         // Direct click handler
-        toggle.addEventListener('click', function(e) {
+        toggle.addEventListener('click', function (e) {
             console.log('Toggle clicked!');
             e.preventDefault();
             e.stopPropagation();
             chatbot.classList.add('active');
             toggle.style.display = 'none';
-            
+
             // Remove badge
             const badge = toggle.querySelector('.chatbot-badge');
             if (badge) badge.style.display = 'none';
         });
-        
+
         console.log('Direct click handler attached');
     } else {
         console.error('ERROR: Required elements not found!');
         return;
     }
-    
+
     initChatbot();
 });
 
 // Initialize Chatbot
 function initChatbot() {
     console.log('initChatbot function called');
-    
+
     const chatbotToggle = document.getElementById('chatbotToggle');
     const chatbot = document.getElementById('chatbot');
     const chatbotClose = document.getElementById('chatbotClose');
@@ -99,21 +98,21 @@ function initChatbot() {
     const chatbotSend = document.getElementById('chatbotSend');
     const chatbotInput = document.getElementById('chatbotInputField');
     const quickReplies = document.querySelectorAll('.quick-reply');
-    
+
     console.log('Setting up chatbot event listeners...');
-    
+
     // Close chatbot
     if (chatbotClose) {
-        chatbotClose.addEventListener('click', function() {
+        chatbotClose.addEventListener('click', function () {
             console.log('Close button clicked');
             chatbot.classList.remove('active');
             chatbotToggle.style.display = 'flex';
         });
     }
-    
+
     // Clear chat
     if (chatbotClear) {
-        chatbotClear.addEventListener('click', function() {
+        chatbotClear.addEventListener('click', function () {
             console.log('Clear chat clicked');
             const messagesContainer = document.getElementById('chatbotMessages');
             // Keep only the initial welcome message
@@ -124,7 +123,7 @@ function initChatbot() {
                 // Re-attach quick reply listeners
                 const newQuickReplies = messagesContainer.querySelectorAll('.quick-reply');
                 newQuickReplies.forEach(reply => {
-                    reply.addEventListener('click', function() {
+                    reply.addEventListener('click', function () {
                         const message = this.dataset.message;
                         if (chatbotInput) chatbotInput.value = message;
                         sendMessage();
@@ -133,29 +132,29 @@ function initChatbot() {
             }
         });
     }
-    
+
     // Send message
     if (chatbotSend) {
         chatbotSend.addEventListener('click', () => sendMessage());
     }
-    
+
     if (chatbotInput) {
-        chatbotInput.addEventListener('keypress', function(e) {
+        chatbotInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 sendMessage();
             }
         });
     }
-    
+
     // Quick replies
     quickReplies.forEach(reply => {
-        reply.addEventListener('click', function() {
+        reply.addEventListener('click', function () {
             const message = this.dataset.message;
             if (chatbotInput) chatbotInput.value = message;
             sendMessage();
         });
     });
-    
+
     console.log('Chatbot initialization complete!');
 }
 
@@ -163,16 +162,16 @@ function initChatbot() {
 async function sendMessage() {
     const input = document.getElementById('chatbotInputField');
     const message = input.value.trim();
-    
+
     if (!message) return;
-    
+
     // Add user message
     addMessage(message, 'user');
     input.value = '';
-    
+
     // Show typing indicator
     showTypingIndicator();
-    
+
     // Get AI response from Google Gemini
     try {
         const response = await getGeminiResponse(message);
@@ -187,12 +186,10 @@ async function sendMessage() {
 
 // Get Response from Google Gemini AI
 async function getGeminiResponse(userMessage) {
-    const apiKey = typeof CONFIG !== 'undefined' && CONFIG.GEMINI_API_KEY ? CONFIG.GEMINI_API_KEY : GEMINI_API_KEY;
-    const url = `${GEMINI_API_URL}?key=${apiKey}`;
-    
-    console.log('Using API key:', apiKey ? 'Key loaded' : 'No key found');
-    console.log('API URL:', GEMINI_API_URL);
-    
+    const url = GEMINI_API_URL;
+
+    console.log('Sending request to Worker:', GEMINI_API_URL);
+
     const payload = {
         contents: [{
             parts: [{
@@ -216,7 +213,7 @@ async function getGeminiResponse(userMessage) {
 
         const data = await response.json();
         console.log('✅ API Response:', data);
-        
+
         if (data.candidates && data.candidates[0] && data.candidates[0].content) {
             return data.candidates[0].content.parts[0].text;
         } else {
@@ -233,14 +230,14 @@ function addMessage(text, sender) {
     const messagesContainer = document.getElementById('chatbotMessages');
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${sender}-message`;
-    
+
     const avatar = document.createElement('div');
     avatar.className = 'message-avatar';
     avatar.innerHTML = sender === 'bot' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
-    
+
     const content = document.createElement('div');
     content.className = 'message-content';
-    
+
     const messageText = document.createElement('p');
     // Clean up text formatting and preserve line breaks
     const cleanText = text
@@ -248,7 +245,7 @@ function addMessage(text, sender) {
         .replace(/\*/g, '') // Remove italic markdown
         .replace(/\n\n/g, '\n') // Remove double line breaks
         .trim();
-    
+
     // Split by newlines and create proper formatting
     const lines = cleanText.split('\n');
     messageText.innerHTML = lines.map(line => {
@@ -260,58 +257,58 @@ function addMessage(text, sender) {
         }
         return `<span style="display: block; margin: 4px 0;">${line}</span>`;
     }).join('');
-    
+
     content.appendChild(messageText);
-    
+
     // Add action buttons for bot messages based on content
     if (sender === 'bot') {
         const lowerText = cleanText.toLowerCase();
         const buttonsContainer = document.createElement('div');
         buttonsContainer.className = 'chatbot-action-buttons';
         buttonsContainer.style.cssText = 'display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;';
-        
+
         let hasButtons = false;
-        
+
         // Check for membership/pricing related content
-        if (lowerText.includes('membership') || lowerText.includes('£') || lowerText.includes('price') || 
+        if (lowerText.includes('membership') || lowerText.includes('£') || lowerText.includes('price') ||
             lowerText.includes('basic') || lowerText.includes('premium') || lowerText.includes('elite') ||
             lowerText.includes('plan')) {
             const membershipBtn = createActionButton('View Plans', 'memberships.html');
             buttonsContainer.appendChild(membershipBtn);
             hasButtons = true;
         }
-        
+
         // Check for classes related content
-        if (lowerText.includes('class') || lowerText.includes('yoga') || lowerText.includes('hiit') || 
+        if (lowerText.includes('class') || lowerText.includes('yoga') || lowerText.includes('hiit') ||
             lowerText.includes('spin') || lowerText.includes('training')) {
             const classesBtn = createActionButton('View Classes', '#classes');
             buttonsContainer.appendChild(classesBtn);
             hasButtons = true;
         }
-        
+
         // Check for booking related content
         if (lowerText.includes('book') || lowerText.includes('schedule') || lowerText.includes('reserve')) {
             const bookBtn = createActionButton('Book Now', 'booking.html');
             buttonsContainer.appendChild(bookBtn);
             hasButtons = true;
         }
-        
+
         // Check for contact related content
-        if (lowerText.includes('contact') || lowerText.includes('phone') || lowerText.includes('email') || 
+        if (lowerText.includes('contact') || lowerText.includes('phone') || lowerText.includes('email') ||
             lowerText.includes('location') || lowerText.includes('hours')) {
             const contactBtn = createActionButton('Contact Us', '#contact');
             buttonsContainer.appendChild(contactBtn);
             hasButtons = true;
         }
-        
+
         if (hasButtons) {
             content.appendChild(buttonsContainer);
         }
     }
-    
+
     messageDiv.appendChild(avatar);
     messageDiv.appendChild(content);
-    
+
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
@@ -331,23 +328,23 @@ function createActionButton(text, link) {
         cursor: pointer;
         transition: all 0.2s ease;
     `;
-    
+
     button.onmouseover = () => {
         button.style.transform = 'translateY(-2px)';
         button.style.boxShadow = '0 4px 12px rgba(255, 107, 53, 0.3)';
     };
-    
+
     button.onmouseout = () => {
         button.style.transform = 'translateY(0)';
         button.style.boxShadow = 'none';
     };
-    
+
     button.onclick = () => {
         if (link.startsWith('#')) {
             // Close chatbot
             document.getElementById('chatbot').classList.remove('active');
             document.getElementById('chatbotToggle').style.display = 'flex';
-            
+
             // Scroll to section
             setTimeout(() => {
                 const target = document.querySelector(link);
@@ -360,7 +357,7 @@ function createActionButton(text, link) {
             window.location.href = link;
         }
     };
-    
+
     return button;
 }
 
@@ -382,7 +379,7 @@ function showTypingIndicator() {
             </div>
         </div>
     `;
-    
+
     messagesContainer.appendChild(typingDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
@@ -433,13 +430,13 @@ chatbotStyle.textContent = `
 document.head.appendChild(chatbotStyle);
 
 // Backup - ensure chatbot opens even if other code fails
-setTimeout(function() {
+setTimeout(function () {
     const toggle = document.getElementById('chatbotToggle');
     const chatbot = document.getElementById('chatbot');
-    
+
     if (toggle && chatbot && !toggle.dataset.handlerAttached) {
         console.log('Attaching backup handler');
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', function () {
             console.log('Backup handler triggered!');
             chatbot.classList.add('active');
             toggle.style.display = 'none';

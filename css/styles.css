@@ -18,29 +18,29 @@
     --success-color: #28a745;
     --warning-color: #ffc107;
     --danger-color: #dc3545;
-    
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
     --spacing-xl: 4rem;
-    
+
     /* Typography */
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-heading: 'Segoe UI', Arial, sans-serif;
-    
+
     /* Shadows */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
-    
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-base: 0.3s ease;
     --transition-slow: 0.5s ease;
-    
+
     /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
@@ -64,7 +64,7 @@ html {
     html {
         scroll-behavior: auto;
     }
-    
+
     * {
         scroll-behavior: smooth;
         scroll-snap-type: none;
@@ -99,19 +99,41 @@ ul {
 /* ========================================
    Typography
    ======================================== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 2rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
+h1 {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+}
+
+h4 {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+h5 {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+}
+
+h6 {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+}
 
 /* ========================================
    Utility Classes
@@ -304,6 +326,7 @@ h6 { font-size: 1rem; }
 .hero {
     position: relative;
     height: 100vh;
+    height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -403,12 +426,19 @@ h6 { font-size: 1rem; }
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateX(-50%) translateY(0);
     }
+
     40% {
         transform: translateX(-50%) translateY(-10px);
     }
+
     60% {
         transform: translateX(-50%) translateY(-5px);
     }
@@ -427,6 +457,7 @@ h6 { font-size: 1rem; }
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1136,6 +1167,7 @@ h6 { font-size: 1rem; }
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1315,26 +1347,26 @@ h6 { font-size: 1rem; }
     .container {
         padding: 0 1.5rem;
     }
-    
+
     .hero-title {
         font-size: 2.8rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.3rem;
     }
-    
+
     .features-grid,
     .classes-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
-    
+
     .membership-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
     }
-    
+
     .reviews-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1346,138 +1378,179 @@ h6 { font-size: 1rem; }
         max-width: 100%;
         padding: 0 1.5rem;
     }
-    
+
     .navbar {
         padding: 0.875rem 0;
     }
-    
+
     .logo a {
         font-size: 1.3rem;
     }
-    
+
     .logo i {
         font-size: 1.6rem;
     }
-    
+
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 65px;
+        top: 0;
         flex-direction: column;
+        justify-content: center;
         background-color: var(--text-white);
-        width: 100%;
+        width: 80%;
+        height: 100vh;
         text-align: center;
         transition: var(--transition-base);
-        box-shadow: var(--shadow-md);
-        padding: 1.75rem 0;
-        gap: 0;
-        z-index: 1000;
-        max-height: calc(100vh - 65px);
+        box-shadow: 10px 0 25px rgba(0, 0, 0, 0.1);
+        padding: 5rem 0;
+        gap: 1.5rem;
+        z-index: 1001;
         overflow-y: auto;
     }
-    
+
+    .nav-menu::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition-base);
+        pointer-events: none;
+    }
+
+    .nav-menu.active::before {
+        opacity: 1;
+        visibility: visible;
+        left: 80%;
+        /* Position it to cover the rest of the screen (100% - 80% drawer) */
+        width: 100vw;
+    }
+
     .nav-menu.active {
         left: 0;
     }
-    
+
     .nav-menu li {
         margin: 0.875rem 0;
     }
-    
+
     .nav-toggle {
         display: flex;
     }
-    
+
     .nav-toggle span {
         width: 24px;
         height: 3px;
     }
-    
+
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
-    
+
     .about-highlights {
         grid-template-columns: 1fr;
     }
-    
+
     .about-image img {
         height: 400px;
     }
-    
+
     .hero {
         min-height: 85vh;
         padding: 5rem 1rem 3rem;
     }
-    
+
     .hero-title {
-        font-size: 2.3rem;
-        line-height: 1.2;
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        line-height: 1.1;
     }
-    
+
     .hero-subtitle {
         font-size: 1.15rem;
     }
-    
+
     .hero-features {
         gap: 1.5rem;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .hero-feature {
         min-width: 150px;
     }
-    
+
     .hero-cta {
         flex-wrap: wrap;
         gap: 1rem;
         justify-content: center;
     }
-    
+
     .hero-cta .btn {
         min-width: 200px;
     }
-    
+
     .membership-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .membership-card.featured {
         transform: scale(1);
         order: -1;
     }
-    
+
     .reviews-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-image {
+        order: -1;
+    }
+
     .contact-info {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2.5rem;
     }
-    
+
     .footer-contact .contact-info {
         gap: 1.5rem;
     }
-    
+
     .chatbot-container {
         width: 90%;
         right: 5%;
         max-height: 550px;
     }
-    
-    h1 { font-size: 2.3rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.6rem; }
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
 }
 
 /* Mobile landscape */
@@ -1485,79 +1558,87 @@ h6 { font-size: 1rem; }
     .container {
         padding: 0 1.25rem;
     }
-    
+
     section {
         padding: 3.5rem 0;
     }
-    
+
     .section-header {
         margin-bottom: 2rem;
     }
-    
+
     .section-header h2 {
         font-size: 1.9rem;
     }
-    
+
     .section-header p {
         font-size: 1rem;
     }
-    
+
     .features-grid,
     .classes-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .feature-card,
     .class-card {
         max-width: 500px;
         margin: 0 auto;
     }
-    
+
     .class-image {
         height: 220px;
     }
-    
+
     .contact-info {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.25rem;
     }
-    
+
     .info-item {
         padding: 2rem 1rem;
     }
-    
+
     .info-item i {
         font-size: 2rem;
         width: 60px;
         height: 60px;
     }
-    
+
     .info-item h3 {
         font-size: 1.1rem;
     }
-    
+
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
-    
+
     .footer-contact .contact-info {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .cta-content h2 {
         font-size: 2rem;
     }
-    
+
     .cta-content p {
         font-size: 1.05rem;
     }
-    
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.8rem; }
-    h3 { font-size: 1.4rem; }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
 }
 
 /* Mobile portrait */
@@ -1565,44 +1646,46 @@ h6 { font-size: 1rem; }
     .container {
         padding: 0 1rem;
     }
-    
+
     .navbar {
         padding: 0.75rem 0;
     }
-    
+
     .logo a {
-        font-size: 1.1rem;
+        font-size: clamp(0.85rem, 4.5vw, 1rem);
+        /* Dynamically scale logo */
+        white-space: nowrap;
     }
-    
+
     .logo i {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
     }
-    
+
     .nav-menu {
         top: 55px;
         padding: 1.25rem 0;
     }
-    
+
     .nav-menu li {
         margin: 0.65rem 0;
     }
-    
+
     .nav-link {
         font-size: 1rem;
     }
-    
+
     .btn-nav-login {
         font-size: 0.9rem;
         padding: 0.6rem 1.2rem;
     }
-    
+
     .hero {
         height: 100vh;
         min-height: 100vh;
         padding: 5rem 1rem 3rem;
         text-align: center;
     }
-    
+
     .hero::before {
         background-size: cover;
         background-position: center center;
@@ -1612,79 +1695,84 @@ h6 { font-size: 1rem; }
         left: 0;
         right: 0;
     }
-    
+
     .hero-title {
         font-size: 1.75rem;
         line-height: 1.3;
         margin-bottom: 1rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
         margin: 1rem 0;
     }
-    
+
     .hero-features {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        margin: 1.5rem 0;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
-    
+
     .hero-feature {
         width: 100%;
         max-width: 200px;
     }
-    
+
     .hero-feature i {
         font-size: 2rem;
     }
-    
+
     .hero-cta {
         flex-direction: column;
         width: 100%;
         gap: 0.75rem;
         align-items: center;
+        margin-top: 1.5rem;
     }
-    
+
     .hero-cta .btn {
         width: 100%;
-        max-width: 100%;
+        max-width: 250px;
         display: block;
     }
-    
+
     .section-header {
         margin-bottom: 2rem;
         padding: 0 0.5rem;
     }
-    
+
     .section-header h2 {
         font-size: 1.75rem;
         line-height: 1.3;
     }
-    
+
     .section-header p {
         font-size: 0.95rem;
     }
-    
+
     .about-grid {
         gap: 2rem;
     }
-    
+
     .about-content {
         text-align: center;
     }
-    
+
     .about-content .btn {
         display: block;
         width: 100%;
         max-width: 300px;
         margin: 1rem auto 0;
     }
-    
+
     .about-highlights {
         grid-template-columns: 1fr;
     }
-    
+
     .feature-card,
     .class-card,
     .membership-card,
@@ -1692,70 +1780,70 @@ h6 { font-size: 1rem; }
         margin: 0 auto;
         max-width: 100%;
     }
-    
+
     .class-content .btn,
     .membership-card .btn {
         display: block;
         width: 100%;
         text-align: center;
     }
-    
+
     .feature-icon {
         width: 60px;
         height: 60px;
         font-size: 1.75rem;
     }
-    
+
     .info-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .contact-info {
         grid-template-columns: 1fr;
         gap: 1rem;
         padding: 0;
     }
-    
+
     .info-item {
         padding: 1.5rem 1rem;
         width: 100%;
     }
-    
+
     .info-item i {
         font-size: 2rem;
         width: 60px;
         height: 60px;
     }
-    
+
     .info-item h3 {
         font-size: 1.1rem;
     }
-    
+
     .info-item p {
         font-size: 0.95rem;
     }
-    
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
     }
-    
+
     .footer-col ul {
         text-align: center;
     }
-    
+
     .footer-contact {
         text-align: center;
     }
-    
+
     .footer-contact .contact-info {
         flex-direction: column;
         gap: 1rem;
         align-items: center;
     }
-    
+
     .features-grid,
     .classes-grid,
     .membership-grid,
@@ -1763,7 +1851,7 @@ h6 { font-size: 1rem; }
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .btn {
         padding: 0.75rem 1.5rem;
         font-size: 0.95rem;
@@ -1772,29 +1860,29 @@ h6 { font-size: 1rem; }
         text-align: center;
         display: inline-block;
     }
-    
+
     .btn-lg {
         padding: 1rem 2rem;
         width: 100%;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         width: 100%;
         align-items: center;
     }
-    
+
     .cta-buttons .btn {
         width: 100%;
         max-width: 350px;
     }
-    
+
     .text-center .btn {
         margin: 1rem auto;
         display: block;
         max-width: 300px;
     }
-    
+
     .chatbot-toggle {
         width: 50px;
         height: 50px;
@@ -1802,7 +1890,7 @@ h6 { font-size: 1rem; }
         bottom: 15px;
         right: 15px;
     }
-    
+
     .chatbot-container {
         bottom: 75px;
         width: calc(100% - 2rem);
@@ -1810,39 +1898,50 @@ h6 { font-size: 1rem; }
         left: 1rem;
         max-height: 70vh;
     }
-    
+
     .chatbot-header {
         padding: 0.9rem 1rem;
     }
-    
+
     .chatbot-title {
         font-size: 0.95rem;
     }
-    
+
     .chatbot-messages {
         max-height: 50vh;
         padding: 1rem;
     }
-    
+
     .message-content p {
         font-size: 0.9rem;
         padding: 0.6rem 0.85rem;
     }
-    
+
     .quick-replies {
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
     }
-    
+
     .quick-reply {
         font-size: 0.8rem;
         padding: 0.5rem 0.6rem;
     }
-    
-    h1 { font-size: 1.75rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.25rem; }
-    h4 { font-size: 1.1rem; }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
 }
 
 /* Extra small mobile */
@@ -1850,105 +1949,125 @@ h6 { font-size: 1rem; }
     .container {
         padding: 0 1rem;
     }
-    
+
     section {
         padding: 3rem 0;
     }
-    
+
     .hero {
         padding: 4rem 1rem 3rem;
     }
-    
+
     .hero-title {
-        font-size: 1.6rem;
-        padding: 0 0.5rem;
+        font-size: clamp(1.2rem, 6vw, 1.5rem);
+        padding: 0;
+        line-height: 1.2;
     }
-    
+
+    .hero-feature i {
+        font-size: 1.5rem;
+    }
+
+    .hero-feature span {
+        font-size: 0.75rem;
+    }
+
     .hero-subtitle {
         font-size: 0.95rem;
         padding: 0 0.5rem;
     }
-    
+
     .hero-features {
         gap: 0.75rem;
     }
-    
+
     .hero-feature {
-        min-width: 120px;
+        min-width: unset;
     }
-    
+
     .hero-feature i {
         font-size: 1.75rem;
     }
-    
+
     .hero-feature span {
         font-size: 0.85rem;
     }
-    
+
     .feature-icon {
         width: 50px;
         height: 50px;
         font-size: 1.4rem;
     }
-    
+
     .feature-card h3,
     .class-card h3 {
         font-size: 1.2rem;
     }
-    
+
     .btn {
         padding: 0.7rem 1.25rem;
         font-size: 0.9rem;
     }
-    
+
     .btn-lg {
         padding: 0.85rem 1.75rem;
         font-size: 0.95rem;
     }
-    
+
     .section-header h2 {
         font-size: 1.6rem;
     }
-    
+
     .section-header p {
         font-size: 0.92rem;
     }
-    
+
     .price .amount {
         font-size: 2.5rem;
     }
-    
+
     .contact-info {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .chatbot-container {
         max-height: 65vh;
         width: calc(100% - 1.5rem);
         right: 0.75rem;
         left: 0.75rem;
     }
-    
+
     .chatbot-messages {
         max-height: 45vh;
     }
-    
+
     .chatbot-header {
         padding: 0.85rem 1rem;
     }
-    
+
     .chatbot-title {
         font-size: 0.9rem;
     }
-    
-    h1 { font-size: 1.6rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.2rem; }
-    h4 { font-size: 1rem; }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
 }
 
 /* ========================================
@@ -1965,7 +2084,9 @@ h6 { font-size: 1rem; }
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ========================================

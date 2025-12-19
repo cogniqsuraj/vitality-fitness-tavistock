@@ -555,8 +555,15 @@
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.92; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.92;
+    }
 }
 
 .schedule-info {
@@ -1482,6 +1489,7 @@
 
 /* Responsive */
 @media (max-width: 1200px) {
+
     .dashboard-grid,
     .analytics-grid {
         grid-template-columns: 1fr;
@@ -1500,25 +1508,25 @@
     .dashboard {
         grid-template-columns: 1fr;
     }
-    
+
     .dashboard-sidebar {
         transform: translateX(-100%);
         transition: var(--transition-base);
     }
-    
+
     .dashboard-sidebar.active {
         transform: translateX(0);
     }
-    
+
     .dashboard-main {
         margin-left: 0;
         width: 100%;
     }
-    
+
     .menu-toggle {
         display: block;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1563,5 +1571,62 @@
 
     .search-box {
         min-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .data-table thead {
+        display: none;
+    }
+
+    .data-table,
+    .data-table tbody,
+    .data-table tr,
+    .data-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .data-table tr {
+        margin-bottom: 1.5rem;
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        padding: 1rem;
+    }
+
+    .data-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #f1f1f1;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .data-table td:last-child {
+        border-bottom: 0;
+    }
+
+    .data-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+
+    .member-cell {
+        justify-content: flex-end;
+    }
+
+    .action-buttons {
+        justify-content: flex-end;
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="dashboard">
         <!-- Sidebar -->
@@ -103,7 +105,8 @@
                             <div class="stat-info">
                                 <h3 id="stat-members">287</h3>
                                 <p>Active Members</p>
-                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +12% this month</span>
+                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +12% this
+                                    month</span>
                             </div>
                             <div class="stat-progress">
                                 <div class="progress-bar" style="width: 78%;"></div>
@@ -116,7 +119,8 @@
                             <div class="stat-info">
                                 <h3 id="stat-bookings">156</h3>
                                 <p>Bookings Today</p>
-                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +8% vs yesterday</span>
+                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +8% vs
+                                    yesterday</span>
                             </div>
                             <div class="stat-progress">
                                 <div class="progress-bar" style="width: 65%;"></div>
@@ -129,7 +133,8 @@
                             <div class="stat-info">
                                 <h3 id="stat-revenue">£9,847</h3>
                                 <p>Revenue (MTD)</p>
-                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +15% vs last month</span>
+                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> +15% vs last
+                                    month</span>
                             </div>
                             <div class="stat-progress">
                                 <div class="progress-bar" style="width: 82%;"></div>
@@ -168,11 +173,13 @@
                                     </div>
                                     <div class="schedule-info">
                                         <h4>Yoga & Pilates</h4>
-                                        <p><i class="fas fa-user"></i> Sarah Johnson • <i class="fas fa-users"></i> 12/20 spots</p>
+                                        <p><i class="fas fa-user"></i> Sarah Johnson • <i class="fas fa-users"></i>
+                                            12/20 spots</p>
                                     </div>
                                     <div class="schedule-actions">
                                         <span class="badge badge-success">Completed</span>
-                                        <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="icon-btn" title="View Details"><i
+                                                class="fas fa-eye"></i></button>
                                     </div>
                                 </div>
                                 <div class="schedule-item in-progress">
@@ -185,7 +192,8 @@
                                     </div>
                                     <div class="schedule-info">
                                         <h4>HIIT Training</h4>
-                                        <p><i class="fas fa-user"></i> Mike Peters • <i class="fas fa-users"></i> 15/20 spots</p>
+                                        <p><i class="fas fa-user"></i> Mike Peters • <i class="fas fa-users"></i> 15/20
+                                            spots</p>
                                     </div>
                                     <div class="schedule-actions">
                                         <button class="btn btn-primary btn-sm">Check In</button>
@@ -201,7 +209,8 @@
                                     </div>
                                     <div class="schedule-info">
                                         <h4>Spin Cycle</h4>
-                                        <p><i class="fas fa-user"></i> Emma Davis • <i class="fas fa-users"></i> 18/20 spots</p>
+                                        <p><i class="fas fa-user"></i> Emma Davis • <i class="fas fa-users"></i> 18/20
+                                            spots</p>
                                     </div>
                                     <div class="schedule-actions">
                                         <span class="badge badge-warning">Almost Full</span>
@@ -218,7 +227,8 @@
                                     </div>
                                     <div class="schedule-info">
                                         <h4>Strength Training</h4>
-                                        <p><i class="fas fa-user"></i> James Wilson • <i class="fas fa-users"></i> 8/20 spots</p>
+                                        <p><i class="fas fa-user"></i> James Wilson • <i class="fas fa-users"></i> 8/20
+                                            spots</p>
                                     </div>
                                     <div class="schedule-actions">
                                         <span class="badge">Available</span>
@@ -235,7 +245,8 @@
                                     </div>
                                     <div class="schedule-info">
                                         <h4>Evening Yoga</h4>
-                                        <p><i class="fas fa-user"></i> Sarah Johnson • <i class="fas fa-users"></i> 16/20 spots</p>
+                                        <p><i class="fas fa-user"></i> Sarah Johnson • <i class="fas fa-users"></i>
+                                            16/20 spots</p>
                                     </div>
                                     <div class="schedule-actions">
                                         <span class="badge badge-warning">Popular</span>
@@ -248,15 +259,18 @@
                         <div class="dashboard-card">
                             <h2>Quick Actions</h2>
                             <div class="quick-actions">
-                                <button class="action-btn" onclick="showNotification('Opening member registration...', 'success')">
+                                <button class="action-btn"
+                                    onclick="showNotification('Opening member registration...', 'success')">
                                     <i class="fas fa-user-plus"></i>
                                     <span>Add Member</span>
                                 </button>
-                                <button class="action-btn" onclick="showNotification('Opening class creator...', 'success')">
+                                <button class="action-btn"
+                                    onclick="showNotification('Opening class creator...', 'success')">
                                     <i class="fas fa-calendar-plus"></i>
                                     <span>Create Class</span>
                                 </button>
-                                <button class="action-btn" onclick="document.getElementById('announcements').scrollIntoView({behavior: 'smooth'}); document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active')); document.querySelector('[href=\'#announcements\']').classList.add('active'); document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active')); document.getElementById('announcements').classList.add('active');">
+                                <button class="action-btn"
+                                    onclick="document.getElementById('announcements').scrollIntoView({behavior: 'smooth'}); document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active')); document.querySelector('[href=\'#announcements\']').classList.add('active'); document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active')); document.getElementById('announcements').classList.add('active');">
                                     <i class="fas fa-bullhorn"></i>
                                     <span>Announce</span>
                                 </button>
@@ -264,11 +278,13 @@
                                     <i class="fas fa-file-download"></i>
                                     <span>Export Report</span>
                                 </button>
-                                <button class="action-btn" onclick="showNotification('Opening revenue dashboard...', 'success')">
+                                <button class="action-btn"
+                                    onclick="showNotification('Opening revenue dashboard...', 'success')">
                                     <i class="fas fa-chart-pie"></i>
                                     <span>View Analytics</span>
                                 </button>
-                                <button class="action-btn" onclick="showNotification('Opening member directory...', 'success')">
+                                <button class="action-btn"
+                                    onclick="showNotification('Opening member directory...', 'success')">
                                     <i class="fas fa-address-book"></i>
                                     <span>Member List</span>
                                 </button>
@@ -321,28 +337,32 @@
                                     <div class="growth-label">New This Week</div>
                                     <div class="growth-value">+24</div>
                                     <div class="growth-bar">
-                                        <div style="width: 85%; background: linear-gradient(90deg, #28a745, #34ce57);"></div>
+                                        <div style="width: 85%; background: linear-gradient(90deg, #28a745, #34ce57);">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="growth-item">
                                     <div class="growth-label">Renewals</div>
                                     <div class="growth-value">18</div>
                                     <div class="growth-bar">
-                                        <div style="width: 65%; background: linear-gradient(90deg, #004e89, #0066b2);"></div>
+                                        <div style="width: 65%; background: linear-gradient(90deg, #004e89, #0066b2);">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="growth-item">
                                     <div class="growth-label">Cancellations</div>
                                     <div class="growth-value">3</div>
                                     <div class="growth-bar">
-                                        <div style="width: 15%; background: linear-gradient(90deg, #dc3545, #e74c3c);"></div>
+                                        <div style="width: 15%; background: linear-gradient(90deg, #dc3545, #e74c3c);">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="growth-item">
                                     <div class="growth-label">Net Growth</div>
                                     <div class="growth-value positive">+21</div>
                                     <div class="growth-bar">
-                                        <div style="width: 90%; background: linear-gradient(90deg, #ff6b35, #ff8557);"></div>
+                                        <div style="width: 90%; background: linear-gradient(90deg, #ff6b35, #ff8557);">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -357,7 +377,8 @@
                                         <span class="class-count">92 bookings</span>
                                     </div>
                                     <div class="popularity-bar">
-                                        <div style="width: 92%; background: linear-gradient(90deg, #ff6b35, #ff8557);"></div>
+                                        <div style="width: 92%; background: linear-gradient(90deg, #ff6b35, #ff8557);">
+                                        </div>
                                     </div>
                                     <span class="popularity-percentage">92%</span>
                                 </div>
@@ -367,7 +388,8 @@
                                         <span class="class-count">85 bookings</span>
                                     </div>
                                     <div class="popularity-bar">
-                                        <div style="width: 85%; background: linear-gradient(90deg, #004e89, #0066b2);"></div>
+                                        <div style="width: 85%; background: linear-gradient(90deg, #004e89, #0066b2);">
+                                        </div>
                                     </div>
                                     <span class="popularity-percentage">85%</span>
                                 </div>
@@ -377,7 +399,8 @@
                                         <span class="class-count">78 bookings</span>
                                     </div>
                                     <div class="popularity-bar">
-                                        <div style="width: 78%; background: linear-gradient(90deg, #28a745, #34ce57);"></div>
+                                        <div style="width: 78%; background: linear-gradient(90deg, #28a745, #34ce57);">
+                                        </div>
                                     </div>
                                     <span class="popularity-percentage">78%</span>
                                 </div>
@@ -387,7 +410,8 @@
                                         <span class="class-count">65 bookings</span>
                                     </div>
                                     <div class="popularity-bar">
-                                        <div style="width: 65%; background: linear-gradient(90deg, #ffc107, #ffcd38);"></div>
+                                        <div style="width: 65%; background: linear-gradient(90deg, #ffc107, #ffcd38);">
+                                        </div>
                                     </div>
                                     <span class="popularity-percentage">65%</span>
                                 </div>
@@ -409,7 +433,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <!-- Summary Cards -->
                     <div class="booking-summary-cards">
                         <div class="summary-card">
@@ -446,7 +470,8 @@
                         <div class="table-filters">
                             <div class="search-box">
                                 <i class="fas fa-search"></i>
-                                <input type="text" placeholder="Search by member name, booking ID..." class="search-input">
+                                <input type="text" placeholder="Search by member name, booking ID..."
+                                    class="search-input">
                             </div>
                             <select class="filter-select">
                                 <option>All Classes</option>
@@ -486,9 +511,9 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><strong>#VFT1001</strong></td>
-                                        <td>
+                                        <td data-label="Select"><input type="checkbox"></td>
+                                        <td data-label="Booking ID"><strong>#VFT1001</strong></td>
+                                        <td data-label="Member">
                                             <div class="member-cell">
                                                 <div class="member-avatar">JD</div>
                                                 <div>
@@ -497,33 +522,38 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Class">
                                             <div class="class-cell">
                                                 <strong>Yoga & Pilates</strong>
                                                 <span>Sarah Johnson</span>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Date & Time">
                                             <div class="datetime-cell">
                                                 <div>Nov 21, 2025</div>
                                                 <div class="time-cell">9:00 AM - 10:00 AM</div>
                                             </div>
                                         </td>
-                                        <td><span class="badge badge-success">Confirmed</span></td>
-                                        <td><span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
-                                        <td>
+                                        <td data-label="Status"><span class="badge badge-success">Confirmed</span></td>
+                                        <td data-label="Payment"><span class="badge"
+                                                style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
+                                        <td data-label="Actions">
                                             <div class="action-buttons">
-                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
-                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
-                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
-                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                                <button class="icon-btn" title="View Details"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i
+                                                        class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i
+                                                        class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i
+                                                        class="fas fa-times"></i></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><strong>#VFT1002</strong></td>
-                                        <td>
+                                        <td data-label="Select"><input type="checkbox"></td>
+                                        <td data-label="Booking ID"><strong>#VFT1002</strong></td>
+                                        <td data-label="Member">
                                             <div class="member-cell">
                                                 <div class="member-avatar">SM</div>
                                                 <div>
@@ -532,33 +562,38 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Class">
                                             <div class="class-cell">
                                                 <strong>HIIT Training</strong>
                                                 <span>Mike Peters</span>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Date & Time">
                                             <div class="datetime-cell">
                                                 <div>Nov 20, 2025</div>
                                                 <div class="time-cell">10:30 AM - 11:15 AM</div>
                                             </div>
                                         </td>
-                                        <td><span class="badge badge-warning">Pending</span></td>
-                                        <td><span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
-                                        <td>
+                                        <td data-label="Status"><span class="badge badge-warning">Pending</span></td>
+                                        <td data-label="Payment"><span class="badge"
+                                                style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
+                                        <td data-label="Actions">
                                             <div class="action-buttons">
-                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
-                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
-                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
-                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                                <button class="icon-btn" title="View Details"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i
+                                                        class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i
+                                                        class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i
+                                                        class="fas fa-times"></i></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><strong>#VFT1003</strong></td>
-                                        <td>
+                                        <td data-label="Select"><input type="checkbox"></td>
+                                        <td data-label="Booking ID"><strong>#VFT1003</strong></td>
+                                        <td data-label="Member">
                                             <div class="member-cell">
                                                 <div class="member-avatar">MP</div>
                                                 <div>
@@ -567,33 +602,38 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Class">
                                             <div class="class-cell">
                                                 <strong>Spin Cycle</strong>
                                                 <span>Emma Davis</span>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Date & Time">
                                             <div class="datetime-cell">
                                                 <div>Nov 20, 2025</div>
                                                 <div class="time-cell">12:00 PM - 12:50 PM</div>
                                             </div>
                                         </td>
-                                        <td><span class="badge badge-success">Confirmed</span></td>
-                                        <td><span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
-                                        <td>
+                                        <td data-label="Status"><span class="badge badge-success">Confirmed</span></td>
+                                        <td data-label="Payment"><span class="badge"
+                                                style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
+                                        <td data-label="Actions">
                                             <div class="action-buttons">
-                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
-                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
-                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
-                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                                <button class="icon-btn" title="View Details"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i
+                                                        class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i
+                                                        class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i
+                                                        class="fas fa-times"></i></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><strong>#VFT1004</strong></td>
-                                        <td>
+                                        <td data-label="Select"><input type="checkbox"></td>
+                                        <td data-label="Booking ID"><strong>#VFT1004</strong></td>
+                                        <td data-label="Member">
                                             <div class="member-cell">
                                                 <div class="member-avatar">LC</div>
                                                 <div>
@@ -602,33 +642,38 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Class">
                                             <div class="class-cell">
                                                 <strong>PT Session</strong>
                                                 <span>Mike Peters</span>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Date & Time">
                                             <div class="datetime-cell">
                                                 <div>Nov 22, 2025</div>
                                                 <div class="time-cell">3:00 PM - 4:00 PM</div>
                                             </div>
                                         </td>
-                                        <td><span class="badge badge-success">Confirmed</span></td>
-                                        <td><span class="badge" style="background-color: #fff3cd; color: #856404;">Pending</span></td>
-                                        <td>
+                                        <td data-label="Status"><span class="badge badge-success">Confirmed</span></td>
+                                        <td data-label="Payment"><span class="badge"
+                                                style="background-color: #fff3cd; color: #856404;">Pending</span></td>
+                                        <td data-label="Actions">
                                             <div class="action-buttons">
-                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
-                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
-                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
-                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                                <button class="icon-btn" title="View Details"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i
+                                                        class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i
+                                                        class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i
+                                                        class="fas fa-times"></i></button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><strong>#VFT1005</strong></td>
-                                        <td>
+                                        <td data-label="Select"><input type="checkbox"></td>
+                                        <td data-label="Booking ID"><strong>#VFT1005</strong></td>
+                                        <td data-label="Member">
                                             <div class="member-cell">
                                                 <div class="member-avatar">RJ</div>
                                                 <div>
@@ -637,26 +682,31 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Class">
                                             <div class="class-cell">
                                                 <strong>Strength Training</strong>
                                                 <span>James Wilson</span>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Date & Time">
                                             <div class="datetime-cell">
                                                 <div>Nov 20, 2025</div>
                                                 <div class="time-cell">5:00 PM - 5:55 PM</div>
                                             </div>
                                         </td>
-                                        <td><span class="badge badge-success">Confirmed</span></td>
-                                        <td><span class="badge" style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
-                                        <td>
+                                        <td data-label="Status"><span class="badge badge-success">Confirmed</span></td>
+                                        <td data-label="Payment"><span class="badge"
+                                                style="background-color: #e3f2fd; color: #1976d2;">Paid</span></td>
+                                        <td data-label="Actions">
                                             <div class="action-buttons">
-                                                <button class="icon-btn" title="View Details"><i class="fas fa-eye"></i></button>
-                                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
-                                                <button class="icon-btn" title="Send Reminder"><i class="fas fa-bell"></i></button>
-                                                <button class="icon-btn" title="Cancel"><i class="fas fa-times"></i></button>
+                                                <button class="icon-btn" title="View Details"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="icon-btn" title="Edit"><i
+                                                        class="fas fa-edit"></i></button>
+                                                <button class="icon-btn" title="Send Reminder"><i
+                                                        class="fas fa-bell"></i></button>
+                                                <button class="icon-btn" title="Cancel"><i
+                                                        class="fas fa-times"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -698,21 +748,24 @@
                             <div class="membership-breakdown">
                                 <div class="breakdown-item">
                                     <div class="breakdown-label">
-                                        <span class="color-dot" style="background: linear-gradient(135deg, #ff6b35, #ff8557);"></span>
+                                        <span class="color-dot"
+                                            style="background: linear-gradient(135deg, #ff6b35, #ff8557);"></span>
                                         <span>Basic Members</span>
                                     </div>
                                     <strong>87</strong>
                                 </div>
                                 <div class="breakdown-item">
                                     <div class="breakdown-label">
-                                        <span class="color-dot" style="background: linear-gradient(135deg, #004e89, #0066b2);"></span>
+                                        <span class="color-dot"
+                                            style="background: linear-gradient(135deg, #004e89, #0066b2);"></span>
                                         <span>Premium Members</span>
                                     </div>
                                     <strong>156</strong>
                                 </div>
                                 <div class="breakdown-item">
                                     <div class="breakdown-label">
-                                        <span class="color-dot" style="background: linear-gradient(135deg, #28a745, #34ce57);"></span>
+                                        <span class="color-dot"
+                                            style="background: linear-gradient(135deg, #28a745, #34ce57);"></span>
                                         <span>Elite Members</span>
                                     </div>
                                     <strong>44</strong>
@@ -856,17 +909,23 @@
                             <div class="popularity-list">
                                 <div class="popularity-item">
                                     <span>Yoga & Pilates</span>
-                                    <div class="popularity-bar"><div style="width: 85%;"></div></div>
+                                    <div class="popularity-bar">
+                                        <div style="width: 85%;"></div>
+                                    </div>
                                     <span>85%</span>
                                 </div>
                                 <div class="popularity-item">
                                     <span>HIIT Training</span>
-                                    <div class="popularity-bar"><div style="width: 78%;"></div></div>
+                                    <div class="popularity-bar">
+                                        <div style="width: 78%;"></div>
+                                    </div>
                                     <span>78%</span>
                                 </div>
                                 <div class="popularity-item">
                                     <span>Spin Cycle</span>
-                                    <div class="popularity-bar"><div style="width: 92%;"></div></div>
+                                    <div class="popularity-bar">
+                                        <div style="width: 92%;"></div>
+                                    </div>
                                     <span>92%</span>
                                 </div>
                             </div>
@@ -879,35 +938,42 @@
                     <div class="section-header">
                         <h2>Send Announcement</h2>
                     </div>
-                    
+
                     <div class="dashboard-grid" style="grid-template-columns: 2fr 1fr;">
                         <div class="dashboard-card">
                             <h3 style="margin-bottom: 1.5rem;">Create New Announcement</h3>
                             <form class="announcement-form">
                                 <div class="form-group">
                                     <label class="form-label">Announcement Title</label>
-                                    <input type="text" class="form-input" placeholder="Enter announcement title..." required>
+                                    <input type="text" class="form-input" placeholder="Enter announcement title..."
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Message</label>
-                                    <textarea class="form-textarea" placeholder="Type your announcement message here..." required></textarea>
+                                    <textarea class="form-textarea" placeholder="Type your announcement message here..."
+                                        required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Delivery Options</label>
                                     <label class="checkbox-label">
                                         <input type="checkbox" id="emailNotif">
-                                        <span><i class="fas fa-envelope" style="color: #004e89; margin-right: 8px;"></i>Send via Email</span>
+                                        <span><i class="fas fa-envelope"
+                                                style="color: #004e89; margin-right: 8px;"></i>Send via Email</span>
                                     </label>
                                     <label class="checkbox-label">
                                         <input type="checkbox" id="smsNotif">
-                                        <span><i class="fas fa-sms" style="color: #28a745; margin-right: 8px;"></i>Send via SMS</span>
+                                        <span><i class="fas fa-sms" style="color: #28a745; margin-right: 8px;"></i>Send
+                                            via SMS</span>
                                     </label>
                                     <label class="checkbox-label">
                                         <input type="checkbox" id="dashNotif" checked>
-                                        <span><i class="fas fa-tv" style="color: #ff6b35; margin-right: 8px;"></i>Display on Member Dashboard</span>
+                                        <span><i class="fas fa-tv"
+                                                style="color: #ff6b35; margin-right: 8px;"></i>Display on Member
+                                            Dashboard</span>
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;">
+                                <button type="submit" class="btn btn-primary"
+                                    style="width: 100%; padding: 1rem; font-size: 1rem;">
                                     <i class="fas fa-paper-plane"></i> Send Announcement
                                 </button>
                             </form>
@@ -951,4 +1017,5 @@
     <script src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
+
 </html>
